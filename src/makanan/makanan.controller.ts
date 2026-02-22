@@ -4,18 +4,22 @@ import { CreateMakananDto } from './dto/create-makanan.dto';
 import { UpdateMakananDto } from './dto/update-makanan.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { RolesGuard } from 'src/auth/roles/roles.guard';
+import { Roles } from 'src/auth/roles/roles.decorator';
+import { Role } from 'src/enum/role.enum';
 
+@UseGuards(AuthGuard, RolesGuard)
 @Controller('makanan')
 export class MakananController {
   constructor(private readonly makananService: MakananService) {}
 
+  @Roles(Role.Admin)
   @Post()
   @UseInterceptors(FileInterceptor(''))
   async create(@Body() createMakananDto: CreateMakananDto) {
     return await this.makananService.create(createMakananDto);
   }
 
-  @UseGuards(AuthGuard)
   @Get()
   async findAll() {
     return await this.makananService.findAll();

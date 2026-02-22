@@ -15,15 +15,11 @@ export class AuthGuard implements CanActivate{
       throw new UnauthorizedException('Token tidak ditemukan');
     }
 
-    console.log('🔍 Token yang diterima:', token);
-
     try {
       const payload = await this.jwtService.verifyAsync(token)
-      console.log('✅ Token verified berhasil:', payload);
       
       request['user'] = payload;
     } catch (error: any) {
-      console.log('❌ Error saat verify token:', error.message);
       throw new UnauthorizedException('Token tidak valid atau kadaluwarsa');
     }
     

@@ -26,4 +26,10 @@ model User {
   username String @unique
   name     String
   password String
+  role     Role   @default(User)
+}
+
+enum Role {
+  Admin
+  User
 }
