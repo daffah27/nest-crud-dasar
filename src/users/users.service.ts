@@ -5,5 +5,7 @@ import { PrismaService } from 'src/prisma.service';
 export class UsersService {
     constructor(private prisma: PrismaService) {}
 
-    
+    tampilkanuser() {
+        return this.prisma.user.findMany();
+    }
 }

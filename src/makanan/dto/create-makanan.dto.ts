@@ -5,9 +5,4 @@ export class CreateMakananDto {
     
     @IsNotEmpty()
     nama!: string;
-
-    @Type(() => Number)
-    @IsNumber()
-    @Min(0)
-    harga!: number;
 }

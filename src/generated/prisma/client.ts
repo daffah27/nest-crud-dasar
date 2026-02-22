@@ -43,6 +43,11 @@ export { Prisma }
  */
 export type Makanan = Prisma.MakananModel
 /**
+ * Model Bahan
+ * 
+ */
+export type Bahan = Prisma.BahanModel
+/**
  * Model User
  * 
  */

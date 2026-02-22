@@ -7,6 +7,7 @@ import { AuthGuard } from 'src/auth/auth.guard';
 import { RolesGuard } from 'src/auth/roles/roles.guard';
 import { Roles } from 'src/auth/roles/roles.decorator';
 import { Role } from 'src/enum/role.enum';
+import { TambahBahanDto } from './dto/tambah-bahan.dto';
 
 @UseGuards(AuthGuard, RolesGuard)
 @Controller('makanan')
@@ -18,6 +19,12 @@ export class MakananController {
   @UseInterceptors(FileInterceptor(''))
   async create(@Body() createMakananDto: CreateMakananDto) {
     return await this.makananService.create(createMakananDto);
+  }
+
+  @Post('tambah-bahan')
+  @UseInterceptors(FileInterceptor(''))
+  async tambahBahan(@Body() tambahBahanDto: TambahBahanDto) {
+    return await this.makananService.tambahBahan(tambahBahanDto);
   }
 
   @Get()

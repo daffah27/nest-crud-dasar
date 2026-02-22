@@ -385,6 +385,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Makanan: 'Makanan',
+  Bahan: 'Bahan',
   User: 'User'
 } as const
 
@@ -401,7 +402,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "makanan" | "user"
+    modelProps: "makanan" | "bahan" | "user"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -468,6 +469,72 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.MakananCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.MakananCountAggregateOutputType> | number
+        }
+      }
+    }
+    Bahan: {
+      payload: Prisma.$BahanPayload<ExtArgs>
+      fields: Prisma.BahanFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BahanFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BahanFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>
+        }
+        findFirst: {
+          args: Prisma.BahanFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BahanFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>
+        }
+        findMany: {
+          args: Prisma.BahanFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>[]
+        }
+        create: {
+          args: Prisma.BahanCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>
+        }
+        createMany: {
+          args: Prisma.BahanCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        delete: {
+          args: Prisma.BahanDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>
+        }
+        update: {
+          args: Prisma.BahanUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>
+        }
+        deleteMany: {
+          args: Prisma.BahanDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BahanUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        upsert: {
+          args: Prisma.BahanUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BahanPayload>
+        }
+        aggregate: {
+          args: Prisma.BahanAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBahan>
+        }
+        groupBy: {
+          args: Prisma.BahanGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BahanGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BahanCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BahanCountAggregateOutputType> | number
         }
       }
     }
@@ -579,12 +646,23 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const MakananScalarFieldEnum = {
   id: 'id',
   nama: 'nama',
-  harga: 'harga',
   createAt: 'createAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type MakananScalarFieldEnum = (typeof MakananScalarFieldEnum)[keyof typeof MakananScalarFieldEnum]
+
+
+export const BahanScalarFieldEnum = {
+  id: 'id',
+  nama: 'nama',
+  stok: 'stok',
+  harga: 'harga',
+  createAt: 'createAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type BahanScalarFieldEnum = (typeof BahanScalarFieldEnum)[keyof typeof BahanScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -611,6 +689,13 @@ export const MakananOrderByRelevanceFieldEnum = {
 } as const
 
 export type MakananOrderByRelevanceFieldEnum = (typeof MakananOrderByRelevanceFieldEnum)[keyof typeof MakananOrderByRelevanceFieldEnum]
+
+
+export const BahanOrderByRelevanceFieldEnum = {
+  nama: 'nama'
+} as const
+
+export type BahanOrderByRelevanceFieldEnum = (typeof BahanOrderByRelevanceFieldEnum)[keyof typeof BahanOrderByRelevanceFieldEnum]
 
 
 export const UserOrderByRelevanceFieldEnum = {
@@ -758,6 +843,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   makanan?: Prisma.MakananOmit
+  bahan?: Prisma.BahanOmit
   user?: Prisma.UserOmit
 }
 

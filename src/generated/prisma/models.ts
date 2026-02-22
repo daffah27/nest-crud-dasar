@@ -9,5 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Makanan'
+export type * from './models/Bahan'
 export type * from './models/User'
 export type * from './commonInputTypes'

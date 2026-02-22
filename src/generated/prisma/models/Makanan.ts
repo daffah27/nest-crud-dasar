@@ -28,18 +28,15 @@ export type AggregateMakanan = {
 
 export type MakananAvgAggregateOutputType = {
   id: number | null
-  harga: number | null
 }
 
 export type MakananSumAggregateOutputType = {
   id: number | null
-  harga: number | null
 }
 
 export type MakananMinAggregateOutputType = {
   id: number | null
   nama: string | null
-  harga: number | null
   createAt: Date | null
   updatedAt: Date | null
 }
@@ -47,7 +44,6 @@ export type MakananMinAggregateOutputType = {
 export type MakananMaxAggregateOutputType = {
   id: number | null
   nama: string | null
-  harga: number | null
   createAt: Date | null
   updatedAt: Date | null
 }
@@ -55,7 +51,6 @@ export type MakananMaxAggregateOutputType = {
 export type MakananCountAggregateOutputType = {
   id: number
   nama: number
-  harga: number
   createAt: number
   updatedAt: number
   _all: number
@@ -64,18 +59,15 @@ export type MakananCountAggregateOutputType = {
 
 export type MakananAvgAggregateInputType = {
   id?: true
-  harga?: true
 }
 
 export type MakananSumAggregateInputType = {
   id?: true
-  harga?: true
 }
 
 export type MakananMinAggregateInputType = {
   id?: true
   nama?: true
-  harga?: true
   createAt?: true
   updatedAt?: true
 }
@@ -83,7 +75,6 @@ export type MakananMinAggregateInputType = {
 export type MakananMaxAggregateInputType = {
   id?: true
   nama?: true
-  harga?: true
   createAt?: true
   updatedAt?: true
 }
@@ -91,7 +82,6 @@ export type MakananMaxAggregateInputType = {
 export type MakananCountAggregateInputType = {
   id?: true
   nama?: true
-  harga?: true
   createAt?: true
   updatedAt?: true
   _all?: true
@@ -186,7 +176,6 @@ export type MakananGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type MakananGroupByOutputType = {
   id: number
   nama: string
-  harga: number
   createAt: Date
   updatedAt: Date
   _count: MakananCountAggregateOutputType | null
@@ -217,17 +206,17 @@ export type MakananWhereInput = {
   NOT?: Prisma.MakananWhereInput | Prisma.MakananWhereInput[]
   id?: Prisma.IntFilter<"Makanan"> | number
   nama?: Prisma.StringFilter<"Makanan"> | string
-  harga?: Prisma.IntFilter<"Makanan"> | number
   createAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
+  bahans?: Prisma.BahanListRelationFilter
 }
 
 export type MakananOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  bahans?: Prisma.BahanOrderByRelationAggregateInput
   _relevance?: Prisma.MakananOrderByRelevanceInput
 }
 
@@ -237,15 +226,14 @@ export type MakananWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.MakananWhereInput[]
   NOT?: Prisma.MakananWhereInput | Prisma.MakananWhereInput[]
   nama?: Prisma.StringFilter<"Makanan"> | string
-  harga?: Prisma.IntFilter<"Makanan"> | number
   createAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
+  bahans?: Prisma.BahanListRelationFilter
 }, "id">
 
 export type MakananOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.MakananCountOrderByAggregateInput
@@ -261,52 +249,49 @@ export type MakananScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MakananScalarWhereWithAggregatesInput | Prisma.MakananScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Makanan"> | number
   nama?: Prisma.StringWithAggregatesFilter<"Makanan"> | string
-  harga?: Prisma.IntWithAggregatesFilter<"Makanan"> | number
   createAt?: Prisma.DateTimeWithAggregatesFilter<"Makanan"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Makanan"> | Date | string
 }
 
 export type MakananCreateInput = {
   nama: string
-  harga: number
   createAt?: Date | string
   updatedAt?: Date | string
+  bahans?: Prisma.BahanCreateNestedManyWithoutMakanansInput
 }
 
 export type MakananUncheckedCreateInput = {
   id?: number
   nama: string
-  harga: number
   createAt?: Date | string
   updatedAt?: Date | string
+  bahans?: Prisma.BahanUncheckedCreateNestedManyWithoutMakanansInput
 }
 
 export type MakananUpdateInput = {
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  harga?: Prisma.IntFieldUpdateOperationsInput | number
   createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bahans?: Prisma.BahanUpdateManyWithoutMakanansNestedInput
 }
 
 export type MakananUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  harga?: Prisma.IntFieldUpdateOperationsInput | number
   createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  bahans?: Prisma.BahanUncheckedUpdateManyWithoutMakanansNestedInput
 }
 
 export type MakananCreateManyInput = {
   id?: number
   nama: string
-  harga: number
   createAt?: Date | string
   updatedAt?: Date | string
 }
 
 export type MakananUpdateManyMutationInput = {
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  harga?: Prisma.IntFieldUpdateOperationsInput | number
   createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -314,7 +299,6 @@ export type MakananUpdateManyMutationInput = {
 export type MakananUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nama?: Prisma.StringFieldUpdateOperationsInput | string
-  harga?: Prisma.IntFieldUpdateOperationsInput | number
   createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -328,20 +312,17 @@ export type MakananOrderByRelevanceInput = {
 export type MakananCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type MakananAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
 }
 
 export type MakananMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -349,18 +330,30 @@ export type MakananMaxOrderByAggregateInput = {
 export type MakananMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
 
 export type MakananSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  harga?: Prisma.SortOrder
+}
+
+export type MakananListRelationFilter = {
+  every?: Prisma.MakananWhereInput
+  some?: Prisma.MakananWhereInput
+  none?: Prisma.MakananWhereInput
+}
+
+export type MakananOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
+}
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -371,18 +364,146 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
+export type MakananCreateNestedManyWithoutBahansInput = {
+  create?: Prisma.XOR<Prisma.MakananCreateWithoutBahansInput, Prisma.MakananUncheckedCreateWithoutBahansInput> | Prisma.MakananCreateWithoutBahansInput[] | Prisma.MakananUncheckedCreateWithoutBahansInput[]
+  connectOrCreate?: Prisma.MakananCreateOrConnectWithoutBahansInput | Prisma.MakananCreateOrConnectWithoutBahansInput[]
+  connect?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
 }
 
+export type MakananUncheckedCreateNestedManyWithoutBahansInput = {
+  create?: Prisma.XOR<Prisma.MakananCreateWithoutBahansInput, Prisma.MakananUncheckedCreateWithoutBahansInput> | Prisma.MakananCreateWithoutBahansInput[] | Prisma.MakananUncheckedCreateWithoutBahansInput[]
+  connectOrCreate?: Prisma.MakananCreateOrConnectWithoutBahansInput | Prisma.MakananCreateOrConnectWithoutBahansInput[]
+  connect?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+}
+
+export type MakananUpdateManyWithoutBahansNestedInput = {
+  create?: Prisma.XOR<Prisma.MakananCreateWithoutBahansInput, Prisma.MakananUncheckedCreateWithoutBahansInput> | Prisma.MakananCreateWithoutBahansInput[] | Prisma.MakananUncheckedCreateWithoutBahansInput[]
+  connectOrCreate?: Prisma.MakananCreateOrConnectWithoutBahansInput | Prisma.MakananCreateOrConnectWithoutBahansInput[]
+  upsert?: Prisma.MakananUpsertWithWhereUniqueWithoutBahansInput | Prisma.MakananUpsertWithWhereUniqueWithoutBahansInput[]
+  set?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  disconnect?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  delete?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  connect?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  update?: Prisma.MakananUpdateWithWhereUniqueWithoutBahansInput | Prisma.MakananUpdateWithWhereUniqueWithoutBahansInput[]
+  updateMany?: Prisma.MakananUpdateManyWithWhereWithoutBahansInput | Prisma.MakananUpdateManyWithWhereWithoutBahansInput[]
+  deleteMany?: Prisma.MakananScalarWhereInput | Prisma.MakananScalarWhereInput[]
+}
+
+export type MakananUncheckedUpdateManyWithoutBahansNestedInput = {
+  create?: Prisma.XOR<Prisma.MakananCreateWithoutBahansInput, Prisma.MakananUncheckedCreateWithoutBahansInput> | Prisma.MakananCreateWithoutBahansInput[] | Prisma.MakananUncheckedCreateWithoutBahansInput[]
+  connectOrCreate?: Prisma.MakananCreateOrConnectWithoutBahansInput | Prisma.MakananCreateOrConnectWithoutBahansInput[]
+  upsert?: Prisma.MakananUpsertWithWhereUniqueWithoutBahansInput | Prisma.MakananUpsertWithWhereUniqueWithoutBahansInput[]
+  set?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  disconnect?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  delete?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  connect?: Prisma.MakananWhereUniqueInput | Prisma.MakananWhereUniqueInput[]
+  update?: Prisma.MakananUpdateWithWhereUniqueWithoutBahansInput | Prisma.MakananUpdateWithWhereUniqueWithoutBahansInput[]
+  updateMany?: Prisma.MakananUpdateManyWithWhereWithoutBahansInput | Prisma.MakananUpdateManyWithWhereWithoutBahansInput[]
+  deleteMany?: Prisma.MakananScalarWhereInput | Prisma.MakananScalarWhereInput[]
+}
+
+export type MakananCreateWithoutBahansInput = {
+  nama: string
+  createAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type MakananUncheckedCreateWithoutBahansInput = {
+  id?: number
+  nama: string
+  createAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type MakananCreateOrConnectWithoutBahansInput = {
+  where: Prisma.MakananWhereUniqueInput
+  create: Prisma.XOR<Prisma.MakananCreateWithoutBahansInput, Prisma.MakananUncheckedCreateWithoutBahansInput>
+}
+
+export type MakananUpsertWithWhereUniqueWithoutBahansInput = {
+  where: Prisma.MakananWhereUniqueInput
+  update: Prisma.XOR<Prisma.MakananUpdateWithoutBahansInput, Prisma.MakananUncheckedUpdateWithoutBahansInput>
+  create: Prisma.XOR<Prisma.MakananCreateWithoutBahansInput, Prisma.MakananUncheckedCreateWithoutBahansInput>
+}
+
+export type MakananUpdateWithWhereUniqueWithoutBahansInput = {
+  where: Prisma.MakananWhereUniqueInput
+  data: Prisma.XOR<Prisma.MakananUpdateWithoutBahansInput, Prisma.MakananUncheckedUpdateWithoutBahansInput>
+}
+
+export type MakananUpdateManyWithWhereWithoutBahansInput = {
+  where: Prisma.MakananScalarWhereInput
+  data: Prisma.XOR<Prisma.MakananUpdateManyMutationInput, Prisma.MakananUncheckedUpdateManyWithoutBahansInput>
+}
+
+export type MakananScalarWhereInput = {
+  AND?: Prisma.MakananScalarWhereInput | Prisma.MakananScalarWhereInput[]
+  OR?: Prisma.MakananScalarWhereInput[]
+  NOT?: Prisma.MakananScalarWhereInput | Prisma.MakananScalarWhereInput[]
+  id?: Prisma.IntFilter<"Makanan"> | number
+  nama?: Prisma.StringFilter<"Makanan"> | string
+  createAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
+}
+
+export type MakananUpdateWithoutBahansInput = {
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type MakananUncheckedUpdateWithoutBahansInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type MakananUncheckedUpdateManyWithoutBahansInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  nama?: Prisma.StringFieldUpdateOperationsInput | string
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type MakananCountOutputType
+ */
+
+export type MakananCountOutputType = {
+  bahans: number
+}
+
+export type MakananCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  bahans?: boolean | MakananCountOutputTypeCountBahansArgs
+}
+
+/**
+ * MakananCountOutputType without action
+ */
+export type MakananCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MakananCountOutputType
+   */
+  select?: Prisma.MakananCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * MakananCountOutputType without action
+ */
+export type MakananCountOutputTypeCountBahansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.BahanWhereInput
+}
 
 
 export type MakananSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nama?: boolean
-  harga?: boolean
   createAt?: boolean
   updatedAt?: boolean
+  bahans?: boolean | Prisma.Makanan$bahansArgs<ExtArgs>
+  _count?: boolean | Prisma.MakananCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["makanan"]>
 
 
@@ -390,20 +511,24 @@ export type MakananSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type MakananSelectScalar = {
   id?: boolean
   nama?: boolean
-  harga?: boolean
   createAt?: boolean
   updatedAt?: boolean
 }
 
-export type MakananOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nama" | "harga" | "createAt" | "updatedAt", ExtArgs["result"]["makanan"]>
+export type MakananOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nama" | "createAt" | "updatedAt", ExtArgs["result"]["makanan"]>
+export type MakananInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  bahans?: boolean | Prisma.Makanan$bahansArgs<ExtArgs>
+  _count?: boolean | Prisma.MakananCountOutputTypeDefaultArgs<ExtArgs>
+}
 
 export type $MakananPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Makanan"
-  objects: {}
+  objects: {
+    bahans: Prisma.$BahanPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     nama: string
-    harga: number
     createAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["makanan"]>
@@ -746,6 +871,7 @@ readonly fields: MakananFieldRefs;
  */
 export interface Prisma__MakananClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  bahans<T extends Prisma.Makanan$bahansArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Makanan$bahansArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BahanPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -777,7 +903,6 @@ export interface Prisma__MakananClient<T, Null = never, ExtArgs extends runtime.
 export interface MakananFieldRefs {
   readonly id: Prisma.FieldRef<"Makanan", 'Int'>
   readonly nama: Prisma.FieldRef<"Makanan", 'String'>
-  readonly harga: Prisma.FieldRef<"Makanan", 'Int'>
   readonly createAt: Prisma.FieldRef<"Makanan", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Makanan", 'DateTime'>
 }
@@ -797,6 +922,10 @@ export type MakananFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inter
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * Filter, which Makanan to fetch.
    */
   where: Prisma.MakananWhereUniqueInput
@@ -815,6 +944,10 @@ export type MakananFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * Filter, which Makanan to fetch.
    */
   where: Prisma.MakananWhereUniqueInput
@@ -832,6 +965,10 @@ export type MakananFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Omit specific fields from the Makanan
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
   /**
    * Filter, which Makanan to fetch.
    */
@@ -881,6 +1018,10 @@ export type MakananFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * Filter, which Makanan to fetch.
    */
   where?: Prisma.MakananWhereInput
@@ -929,6 +1070,10 @@ export type MakananFindManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * Filter, which Makanans to fetch.
    */
   where?: Prisma.MakananWhereInput
@@ -972,6 +1117,10 @@ export type MakananCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * The data needed to create a Makanan.
    */
   data: Prisma.XOR<Prisma.MakananCreateInput, Prisma.MakananUncheckedCreateInput>
@@ -1000,6 +1149,10 @@ export type MakananUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Makanan
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
   /**
    * The data needed to update a Makanan.
    */
@@ -1041,6 +1194,10 @@ export type MakananUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * The filter to search for the Makanan to update in case it exists.
    */
   where: Prisma.MakananWhereUniqueInput
@@ -1067,6 +1224,10 @@ export type MakananDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
+  /**
    * Filter which Makanan to delete.
    */
   where: Prisma.MakananWhereUniqueInput
@@ -1087,6 +1248,30 @@ export type MakananDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 /**
+ * Makanan.bahans
+ */
+export type Makanan$bahansArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Bahan
+   */
+  select?: Prisma.BahanSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Bahan
+   */
+  omit?: Prisma.BahanOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.BahanInclude<ExtArgs> | null
+  where?: Prisma.BahanWhereInput
+  orderBy?: Prisma.BahanOrderByWithRelationInput | Prisma.BahanOrderByWithRelationInput[]
+  cursor?: Prisma.BahanWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.BahanScalarFieldEnum | Prisma.BahanScalarFieldEnum[]
+}
+
+/**
  * Makanan without action
  */
 export type MakananDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1098,4 +1283,8 @@ export type MakananDefaultArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Makanan
    */
   omit?: Prisma.MakananOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MakananInclude<ExtArgs> | null
 }
