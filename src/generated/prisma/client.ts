@@ -42,3 +42,8 @@ export { Prisma }
  * 
  */
 export type Makanan = Prisma.MakananModel
+/**
+ * Model User
+ * 
+ */
+export type User = Prisma.UserModel

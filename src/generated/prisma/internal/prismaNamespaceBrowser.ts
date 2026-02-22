@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Makanan: 'Makanan'
+  Makanan: 'Makanan',
+  User: 'User'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -73,10 +74,22 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const MakananScalarFieldEnum = {
   id: 'id',
   nama: 'nama',
-  harga: 'harga'
+  harga: 'harga',
+  createAt: 'createAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type MakananScalarFieldEnum = (typeof MakananScalarFieldEnum)[keyof typeof MakananScalarFieldEnum]
+
+
+export const UserScalarFieldEnum = {
+  id: 'id',
+  username: 'username',
+  name: 'name',
+  password: 'password'
+} as const
+
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -92,4 +105,13 @@ export const MakananOrderByRelevanceFieldEnum = {
 } as const
 
 export type MakananOrderByRelevanceFieldEnum = (typeof MakananOrderByRelevanceFieldEnum)[keyof typeof MakananOrderByRelevanceFieldEnum]
+
+
+export const UserOrderByRelevanceFieldEnum = {
+  username: 'username',
+  name: 'name',
+  password: 'password'
+} as const
+
+export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
 

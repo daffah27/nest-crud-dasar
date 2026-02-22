@@ -1,8 +1,9 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, Res, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, Res, UseInterceptors, UseGuards } from '@nestjs/common';
 import { MakananService } from './makanan.service';
 import { CreateMakananDto } from './dto/create-makanan.dto';
 import { UpdateMakananDto } from './dto/update-makanan.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('makanan')
 export class MakananController {
@@ -14,6 +15,7 @@ export class MakananController {
     return await this.makananService.create(createMakananDto);
   }
 
+  @UseGuards(AuthGuard)
   @Get()
   async findAll() {
     return await this.makananService.findAll();

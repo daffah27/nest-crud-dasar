@@ -40,18 +40,24 @@ export type MakananMinAggregateOutputType = {
   id: number | null
   nama: string | null
   harga: number | null
+  createAt: Date | null
+  updatedAt: Date | null
 }
 
 export type MakananMaxAggregateOutputType = {
   id: number | null
   nama: string | null
   harga: number | null
+  createAt: Date | null
+  updatedAt: Date | null
 }
 
 export type MakananCountAggregateOutputType = {
   id: number
   nama: number
   harga: number
+  createAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -70,18 +76,24 @@ export type MakananMinAggregateInputType = {
   id?: true
   nama?: true
   harga?: true
+  createAt?: true
+  updatedAt?: true
 }
 
 export type MakananMaxAggregateInputType = {
   id?: true
   nama?: true
   harga?: true
+  createAt?: true
+  updatedAt?: true
 }
 
 export type MakananCountAggregateInputType = {
   id?: true
   nama?: true
   harga?: true
+  createAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -175,6 +187,8 @@ export type MakananGroupByOutputType = {
   id: number
   nama: string
   harga: number
+  createAt: Date
+  updatedAt: Date
   _count: MakananCountAggregateOutputType | null
   _avg: MakananAvgAggregateOutputType | null
   _sum: MakananSumAggregateOutputType | null
@@ -204,12 +218,16 @@ export type MakananWhereInput = {
   id?: Prisma.IntFilter<"Makanan"> | number
   nama?: Prisma.StringFilter<"Makanan"> | string
   harga?: Prisma.IntFilter<"Makanan"> | number
+  createAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
 }
 
 export type MakananOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   harga?: Prisma.SortOrder
+  createAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _relevance?: Prisma.MakananOrderByRelevanceInput
 }
 
@@ -220,12 +238,16 @@ export type MakananWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.MakananWhereInput | Prisma.MakananWhereInput[]
   nama?: Prisma.StringFilter<"Makanan"> | string
   harga?: Prisma.IntFilter<"Makanan"> | number
+  createAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Makanan"> | Date | string
 }, "id">
 
 export type MakananOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   harga?: Prisma.SortOrder
+  createAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.MakananCountOrderByAggregateInput
   _avg?: Prisma.MakananAvgOrderByAggregateInput
   _max?: Prisma.MakananMaxOrderByAggregateInput
@@ -240,45 +262,61 @@ export type MakananScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Makanan"> | number
   nama?: Prisma.StringWithAggregatesFilter<"Makanan"> | string
   harga?: Prisma.IntWithAggregatesFilter<"Makanan"> | number
+  createAt?: Prisma.DateTimeWithAggregatesFilter<"Makanan"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Makanan"> | Date | string
 }
 
 export type MakananCreateInput = {
   nama: string
   harga: number
+  createAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MakananUncheckedCreateInput = {
   id?: number
   nama: string
   harga: number
+  createAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MakananUpdateInput = {
   nama?: Prisma.StringFieldUpdateOperationsInput | string
   harga?: Prisma.IntFieldUpdateOperationsInput | number
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MakananUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nama?: Prisma.StringFieldUpdateOperationsInput | string
   harga?: Prisma.IntFieldUpdateOperationsInput | number
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MakananCreateManyInput = {
   id?: number
   nama: string
   harga: number
+  createAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type MakananUpdateManyMutationInput = {
   nama?: Prisma.StringFieldUpdateOperationsInput | string
   harga?: Prisma.IntFieldUpdateOperationsInput | number
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MakananUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nama?: Prisma.StringFieldUpdateOperationsInput | string
   harga?: Prisma.IntFieldUpdateOperationsInput | number
+  createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MakananOrderByRelevanceInput = {
@@ -291,6 +329,8 @@ export type MakananCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   harga?: Prisma.SortOrder
+  createAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MakananAvgOrderByAggregateInput = {
@@ -302,12 +342,16 @@ export type MakananMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   harga?: Prisma.SortOrder
+  createAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MakananMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nama?: Prisma.SortOrder
   harga?: Prisma.SortOrder
+  createAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type MakananSumOrderByAggregateInput = {
@@ -327,12 +371,18 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
 
 
 export type MakananSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   nama?: boolean
   harga?: boolean
+  createAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["makanan"]>
 
 
@@ -341,9 +391,11 @@ export type MakananSelectScalar = {
   id?: boolean
   nama?: boolean
   harga?: boolean
+  createAt?: boolean
+  updatedAt?: boolean
 }
 
-export type MakananOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nama" | "harga", ExtArgs["result"]["makanan"]>
+export type MakananOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nama" | "harga" | "createAt" | "updatedAt", ExtArgs["result"]["makanan"]>
 
 export type $MakananPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Makanan"
@@ -352,6 +404,8 @@ export type $MakananPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     id: number
     nama: string
     harga: number
+    createAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["makanan"]>
   composites: {}
 }
@@ -724,6 +778,8 @@ export interface MakananFieldRefs {
   readonly id: Prisma.FieldRef<"Makanan", 'Int'>
   readonly nama: Prisma.FieldRef<"Makanan", 'String'>
   readonly harga: Prisma.FieldRef<"Makanan", 'Int'>
+  readonly createAt: Prisma.FieldRef<"Makanan", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Makanan", 'DateTime'>
 }
     
 

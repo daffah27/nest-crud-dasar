@@ -14,7 +14,16 @@ datasource db {
 }
 
 model Makanan {
-  id    Int     @id @default(autoincrement())
-  nama  String
-  harga Int
+  id        Int      @id @default(autoincrement())
+  nama      String
+  harga     Int
+  createAt  DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  username String @unique
+  name     String
+  password String
 }
