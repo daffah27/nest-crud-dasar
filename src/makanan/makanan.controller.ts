@@ -10,32 +10,33 @@ export class MakananController {
 
   @Post()
   @UseInterceptors(FileInterceptor(''))
-  create(@Body() createMakananDto: CreateMakananDto) {
-    return this.makananService.create(createMakananDto);
+  async create(@Body() createMakananDto: CreateMakananDto) {
+    return await this.makananService.create(createMakananDto);
   }
 
   @Get()
-  findAll() {
-    return this.makananService.findAll();
-  }
+  async findAll() {
+    return await this.makananService.findAll();
+  } 
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.makananService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.makananService.findOne(+id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateMakananDto: UpdateMakananDto) {
-    return this.makananService.update(+id, updateMakananDto);
+  @UseInterceptors(FileInterceptor(''))
+  async update(@Param('id') id: string, @Body() updateMakananDto: UpdateMakananDto) {
+    return await this.makananService.update(+id, updateMakananDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.makananService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.makananService.remove(+id);
   }
 
   @Post('reset')
-  reset() {
-    return this.makananService.reset();
+  async reset() {
+    return await this.makananService.reset();
   }
 }

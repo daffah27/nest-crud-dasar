@@ -1,38 +1,36 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateMakananDto } from './dto/create-makanan.dto';
 import { UpdateMakananDto } from './dto/update-makanan.dto';
-import { Makanan } from './entities/makanan.entity';
+import { PrismaService } from 'src/prisma.service';
 
 
 @Injectable()
 export class MakananService {
-  private makanan: Makanan[] = [];
-  private idCounter = 1;
+  constructor(private prisma: PrismaService) {}
 
-  create(createMakananDto: CreateMakananDto) {
+  async create(createMakananDto: CreateMakananDto) {
     try {
-      const newMakanan = new Makanan(
-        this.idCounter++,
-        createMakananDto.nama,
-        createMakananDto.harga
-      );
-      this.makanan.push(newMakanan);
+      await this.prisma.makanan.create({
+        data: createMakananDto
+      });
       return 'Makanan berhasil dibuat';
     } catch (error: any) {
       throw new BadRequestException('Gagal membuat makanan: ' + error.message);
     }
   }
 
-  findAll() {
+  async findAll() {
     return {
       message: 'Daftar makanan berhasil diambil',
-      data: this.makanan
+      data: await this.prisma.makanan.findMany()
     }
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     try {
-      const makanan = this.makanan.find(m => m.id === id);
+      const makanan = await this.prisma.makanan.findUnique({
+        where: { id }
+      });
       if (!makanan) {
         throw new BadRequestException('Makanan tidak ditemukan');
       }
@@ -42,30 +40,37 @@ export class MakananService {
     }
   }
 
-  update(id: number, updateMakananDto: UpdateMakananDto) {
-    const makanan = this.makanan.find(m => m.id === id);
+  async update(id: number, updateMakananDto: UpdateMakananDto) {
+    const makanan = await this.prisma.makanan.findUnique({
+      where: { id }
+    });
     if (makanan) {
-      makanan.nama = updateMakananDto.nama ?? makanan.nama;
-      makanan.harga = updateMakananDto.harga ?? makanan.harga;
+      await this.prisma.makanan.update({
+        where: { id },
+        data: updateMakananDto
+      });
       return 'Makanan berhasil diperbarui';
     } else {
       throw new BadRequestException('Makanan tidak ditemukan');
     }
   }
 
-  remove(id: number) {
-    const index = this.makanan.findIndex(m => m.id === id);
-    if (index !== -1) {
-      this.makanan.splice(index, 1);
+  async remove(id: number) {
+    const makanan = await this.prisma.makanan.findUnique({
+      where: { id }
+    });
+    if (makanan) {
+      await this.prisma.makanan.delete({
+        where: { id }
+      });
       return 'Makanan berhasil dihapus';
     } else {
       throw new BadRequestException('Makanan tidak ditemukan');
     }
   }
 
-  reset() {
-    this.makanan = [];
-    this.idCounter = 1;
+  async reset() {
+    await this.prisma.makanan.deleteMany();
     return 'Data makanan berhasil direset';
   }
 }
